@@ -1,0 +1,29 @@
+diff --git a/Makefile.am b/Makefile.am
+index 568f824..78a1ebf 100755
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -8,8 +8,8 @@ EXTRA_DIST = LICENSE Changes autogen.sh etp.c
+ 
+ include_HEADERS = eio.h
+ 
+-lib_LTLIBRARIES = libeio.la
++lib_LTLIBRARIES = libev-eio.la
+ 
+-libeio_la_SOURCES = eio.c ecb.h xthread.h config.h
+-libeio_la_LDFLAGS = -version-info $(VERSION_INFO)
++libev_eio_la_SOURCES = eio.c ecb.h xthread.h config.h
++libev_eio_la_LDFLAGS = -version-info $(VERSION_INFO) -release passenger40
+ 
+diff --git a/configure.ac b/configure.ac
+index 9faffad..72ee621 100755
+--- a/configure.ac
++++ b/configure.ac
+@@ -3,7 +3,7 @@ AC_INIT
+ AC_CONFIG_SRCDIR([eio.h])
+ AC_CONFIG_HEADERS([config.h])
+ 
+-AM_INIT_AUTOMAKE(libeio,1.0)
++AM_INIT_AUTOMAKE(libev-eio,1.0)
+ AM_MAINTAINER_MODE
+ 
+ AC_GNU_SOURCE
